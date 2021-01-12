@@ -1,0 +1,18 @@
+In HTTP, there are two ways to send the HTML form data to the server either by using ContentType application/x-www-form-urlencoded or by using multipart/form-data.
+Even though both can be used to send both text and binary data to the server there is a subtle difference between them. In the case of x-www-form-urlencoded,
+the whole form data is sent as a long query string.
+
+The query string contains name-value pairs separated by & character e.g. field1=value1&field2=value2 etc.
+
+It is similar to URL encoding and normal GET request where data is sent on URL, but form data goes inside POST request body and they are encoded like that.
+
+Also, both reserved and non-alphanumeric characters are replaced by '%HH', a percent sign and two hexadecimal digits representing the ASCII code of the
+character e.g. space is replaced by %20 character in URL.
+
+On the other hand, when you choose HTTP header ContentType=multipart/form-data then data is sent in chunks to a server where the boundary is made by a character
+which should not appear in the content.
+
+This is achieved by using a suitable encoding e.g. choosing a base64 encoding and then making a character outside of base64 encoding scheme as the boundary.
+The multipart/form-data is often used while uploading files to the server.
+
+Read more: https://javarevisited.blogspot.com/2017/06/difference-between-applicationx-www-form-urlencoded-vs-multipart-form-data.html#ixzz6j4K5wWYY
