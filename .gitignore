@@ -5,5 +5,7 @@ target/**
 src/main/main.iml
 src/test/test.iml
 *.iml
+*.lst
+
 
 
