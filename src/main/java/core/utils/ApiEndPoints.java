@@ -4,8 +4,8 @@ public enum ApiEndPoints {
 
 
     MENU("/v4/menus"),
-    POSTREQUEST(EnvironmentEndPoint.reqres + "/api/users"),
-    PUTREQUEST(EnvironmentEndPoint.reqres + "/api/users/"),
+    POSTREQUEST("/api/users"),
+    PUTREQUEST("/api/users/"),
     PUTTEST("/api/users/{id}")
     ;
 

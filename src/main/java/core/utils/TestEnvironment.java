@@ -1,4 +1,6 @@
-package core.api;
+package core.utils;
+
+import core.api.ConfigInitializer;
 
 public enum TestEnvironment {
 

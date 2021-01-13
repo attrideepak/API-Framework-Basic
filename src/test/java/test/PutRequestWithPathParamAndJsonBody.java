@@ -2,12 +2,13 @@ package test;
 
 import activity.PutRequestWithPathParamAndJsonBodyActivity;
 import core.api.ApiCore;
+import core.api.ConfigInitializer;
 import dataprovider.TestData;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import pojo.requestpojo.PutRequestPojo;
 
-public class PutRequestWithPathParamAndJsonBody {
+public class PutRequestWithPathParamAndJsonBody extends ConfigInitializer {
 
     PutRequestWithPathParamAndJsonBodyActivity putRequest = new PutRequestWithPathParamAndJsonBodyActivity();
     ApiCore apiCore = new ApiCore();

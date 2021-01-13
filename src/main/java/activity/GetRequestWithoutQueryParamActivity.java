@@ -1,7 +1,7 @@
 package activity;
 
 import core.api.ApiCore;
-import core.api.TestEnvironment;
+import core.utils.TestEnvironment;
 import core.utils.ApiEndPoints;
 import io.restassured.response.Response;
 

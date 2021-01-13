@@ -1,8 +1,8 @@
 package activity;
 
 import core.api.ApiCore;
+import core.utils.TestEnvironment;
 import core.utils.ApiEndPoints;
-import core.utils.EnvironmentEndPoint;
 import io.restassured.response.Response;
 import pojo.requestpojo.PutRequestPojo;
 
@@ -14,7 +14,7 @@ public class PutRequestWithPathParamAndJsonBodyActivity {
         PutRequestPojo putRequestPojo = new PutRequestPojo();
         putRequestPojo.setName(name);
         putRequestPojo.setJob(job);
-        Response response = apiCore.triggerPutRequestWithPathParamAndJsonBody(ApiEndPoints.PUTREQUEST.getPath()+id,putRequestPojo);
+        Response response = apiCore.triggerPutRequestWithPathParamAndJsonBody(TestEnvironment.DOMAIN.getValue()+ApiEndPoints.PUTREQUEST.getPath() +id,putRequestPojo);
         return response;
 
 
@@ -24,7 +24,7 @@ public class PutRequestWithPathParamAndJsonBodyActivity {
         PutRequestPojo putRequestPojo = new PutRequestPojo();
         putRequestPojo.setName(name);
         putRequestPojo.setJob(job);
-        Response response = apiCore.triggerPutRequestWithPathParamAndJsonBody(EnvironmentEndPoint.reqres,ApiEndPoints.PUTTEST.getPath(),id,putRequestPojo);
+        Response response = apiCore.triggerPutRequestWithPathParamAndJsonBody(TestEnvironment.DOMAIN.getValue(),ApiEndPoints.PUTTEST.getPath(),id,putRequestPojo);
         return response;
 
 

@@ -1,13 +1,14 @@
 package test;
 
 import activity.GetRequestWithQueryParamActivity;
+import core.api.ConfigInitializer;
 import core.utils.GsonUtils;
 import dataprovider.TestData;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import pojo.responsepojo.GetResponsePojo;
 
-public class GetRequestWithParams {
+public class GetRequestWithParams extends ConfigInitializer {
 
     GetRequestWithQueryParamActivity getRequestWithQueryParamActivity = new GetRequestWithQueryParamActivity();
 

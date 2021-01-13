@@ -1,0 +1,9 @@
+.DS_Store
+target/**
+**/target/
+.idea/
+src/main/main.iml
+src/test/test.iml
+*.iml
+
+
