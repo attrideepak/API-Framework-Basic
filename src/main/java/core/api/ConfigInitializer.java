@@ -20,7 +20,7 @@ public class ConfigInitializer {
             logger.info("Loading properties from path : " + filePath);
             FileInputStream fis = new FileInputStream(filePath);
             pr.load(fis);
-          logger.info("Properties initialised");
+            logger.info("Properties initialised");
         } catch (Exception e) {
             logger.error("Unable to initialise property file!\n " + e.getStackTrace());
         }
@@ -39,8 +39,8 @@ public class ConfigInitializer {
                         + activeEnv
                         + ".properties");
         logger.info("Properties loaded");
-        System.out.println("Properties loaded");
-        System.out.println(properties.toString());
+        logger.debug("Properties loaded");
+        logger.warn("Properties loaded");
     }
 
     @BeforeSuite(alwaysRun = true)
