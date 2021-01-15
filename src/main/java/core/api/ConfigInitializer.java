@@ -31,7 +31,6 @@ public class ConfigInitializer {
         Properties env = new Properties();
         env.load(getClass().getResourceAsStream("/env.properties"));
         activeEnv = env.getProperty("env_to_use");
-        System.out.println(activeEnv);
         logger.info("Active env: " + activeEnv);
         properties =
                 initializePropertiesFiles(new File(System.getProperty("user.dir")).getAbsolutePath()
