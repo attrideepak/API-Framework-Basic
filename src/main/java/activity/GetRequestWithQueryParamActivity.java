@@ -4,6 +4,7 @@ import core.api.ApiCore;
 import core.api.ConfigInitializer;
 import core.utils.TestEnvironment;
 import core.utils.ApiEndPoints;
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
 import java.util.HashMap;
@@ -11,6 +12,7 @@ import java.util.HashMap;
 public class GetRequestWithQueryParamActivity extends ConfigInitializer {
     ApiCore apiCore = new ApiCore();
 
+    @Step("Step 2")
     public Response getRequestWithQueryParam(String platform, String deviceid, String city){
 
         HashMap<String, String> queryParamMap = new HashMap<>();

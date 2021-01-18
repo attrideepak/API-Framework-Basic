@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Sample suite" verbose="10">
+<!--    <listeners>-->
+<!--        <listener class-name="reporting.CustomTestNGReporter"/>-->
+<!--    </listeners>-->
+    <test name="Sample Test" parallel="none">
+        <classes>
+            <class name="test.DBTest"/>
+            <class name="test.GatRequestWithoutParams"/>
+            <class name="test.GetRequestWithParams"/>
+            <class name="test.PostRequestWithJsonBody"/>
+            <class name="test.PutRequestWithPathParamAndJsonBody"/>
+        </classes>
+    </test>
+</suite>

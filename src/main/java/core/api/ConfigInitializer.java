@@ -1,6 +1,8 @@
 package core.api;
 
+import core.utils.database.DBConnection;
 import org.apache.log4j.Logger;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
@@ -45,6 +47,13 @@ public class ConfigInitializer {
     @BeforeSuite(alwaysRun = true)
     public void initialize() throws Exception {
         loadEnvProperties();
+    }
+
+    @AfterSuite(alwaysRun = true)
+    public void closeConnection(){
+        if(DBConnection.con!=null){
+            DBConnection.closeConnection();
+        }
     }
 
 }

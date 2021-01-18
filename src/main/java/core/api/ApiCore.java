@@ -1,5 +1,7 @@
 package core.api;
 import core.utils.GsonUtils;
+import io.qameta.allure.Step;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
@@ -10,9 +12,11 @@ import java.util.HashMap;
 
 public class ApiCore {
 
+    @Step("Step 3")
     public Response triggerGetRequestWithParam(String url, HashMap<String, String> paramMap){
         RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder();
         requestSpecBuilder.addQueryParams(paramMap);
+        requestSpecBuilder.addFilter(new AllureRestAssured());
         RequestSpecification requestSpecification = requestSpecBuilder.build().log().all();
         Response response = RestAssured.given().spec(requestSpecification).get(url);
        // Response response = RestAssured.given().spec(requestSpecification).request(Method.GET,url); ---> This also works
@@ -20,8 +24,9 @@ public class ApiCore {
         return  response;
     }
 
+    @Step("Step 3")
     public Response triggerGetRequestWithoutParam(String url){
-        Response response = RestAssured.given().log().all().get(url);
+        Response response = RestAssured.given().filter(new AllureRestAssured()).log().all().get(url);
         return  response;
     }
 
@@ -34,6 +39,8 @@ public class ApiCore {
         RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder();
         requestSpecBuilder.setBody(json);
         requestSpecBuilder.setContentType(ContentType.JSON);
+        requestSpecBuilder.addFilter(new AllureRestAssured());
+
 
         RequestSpecification requestSpecification = requestSpecBuilder.build().log().all();
         Response response = RestAssured.given().spec(requestSpecification).post(url);
@@ -46,6 +53,7 @@ public class ApiCore {
         RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder();
         requestSpecBuilder.setBody(json);
         requestSpecBuilder.setContentType(ContentType.JSON);
+        requestSpecBuilder.addFilter(new AllureRestAssured());
 
         RequestSpecification requestSpecification = requestSpecBuilder.build().log().all();
         Response response = RestAssured.given().spec(requestSpecification).put(url);
@@ -61,6 +69,7 @@ public class ApiCore {
         requestSpecBuilder.addPathParam("id",id);
         requestSpecBuilder.setBody(json);
         requestSpecBuilder.setContentType(ContentType.JSON);
+        requestSpecBuilder.addFilter(new AllureRestAssured());
 
         RequestSpecification requestSpecification = requestSpecBuilder.build().log().all();
 

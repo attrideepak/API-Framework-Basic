@@ -12,11 +12,11 @@ import java.util.Properties;
 
 public class DBConnection {
     private static Logger logger = Logger.getLogger(DBConnection.class);
+    public static Connection con = null;
+
 
     public static Connection getConnection() {
         Properties props = new Properties();
-        Connection con = null;
-
         props = ConfigInitializer.initializePropertiesFiles(new File(System.getProperty("user.dir")).getAbsolutePath() + "/configurations/database/" + ConfigInitializer.activeEnv + ".properties");
 
         try {
@@ -32,6 +32,16 @@ public class DBConnection {
         }
 
         return con;
+    }
+
+    public static void closeConnection(){
+        try {
+            con.close();
+            logger.info("********** Connection closed ***************");
+        } catch (SQLException e) {
+            logger.info("********** Error closing connection ***************");
+            e.printStackTrace();
+        }
     }
 }
 /**
