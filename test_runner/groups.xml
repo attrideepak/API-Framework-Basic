@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="group suite" verbose="2">
+   <test name="group test 1" enabled="false">
+       <groups>
+           <run>
+               <include name="group.*"/>
+<!--                 <exclude name="group-2"/>-->
+           </run>
+       </groups>
+       <classes>
+           <class name="test.ClassTwo"></class>
+           <class name="test.ClassOne"></class>
+       </classes>
+   </test>
+
+    <test name="default group" enabled="false">
+        <groups>
+            <run>
+                <include name="default-group"/>
+                <!--                 <exclude name="group-2"/>-->
+            </run>
+        </groups>
+        <classes>
+            <class name="test.ClassTwo"></class>
+            <class name="test.ClassThree"></class>
+        </classes>
+    </test>
+    <test name="meta-groups" enabled="false">
+        <groups>
+            <define name="include-group">
+                <include name="group-1"/>
+                <include name="group-3"/>
+            </define>
+            <define name="exclude-group">
+                <include name="group-2"/>
+            </define>
+            <run>
+                <include name="include-group"/>
+                <exclude name="exclude-group"/>
+                <!--                 <exclude name="group-2"/>-->
+            </run>
+        </groups>
+        <classes>
+            <class name="test.ClassTwo"></class>
+            <class name="test.ClassOne"></class>
+        </classes>
+    </test>
+    <test name="default group" enabled="true">
+        <groups>
+            <run>
+                <include name="group-1"/>
+            </run>
+            <dependencies>
+                <group name="group-1" depends-on="group-3"></group>
+            </dependencies>
+        </groups>
+        <classes>
+            <class name="test.ClassTwo"></class>
+            <class name="test.ClassOne"></class>
+        </classes>
+    </test>
+</suite>

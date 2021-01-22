@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Sample suite" verbose="10">
+<suite name="Sample suite" verbose="10" parallel="classes" thread-count="10" preserve-order="false"
+       allow-return-values="true" configfailurepolicy="continue" data-provider-thread-count="20" time-out="2"
+group-by-instances="true">
 <!--    <listeners>-->
 <!--        <listener class-name="reporting.CustomTestNGReporter"/>-->
 <!--    </listeners>-->
-    <test name="Sample Test" parallel="none">
+    <test name="Sample Test">
+        <
         <classes>
-            <class name="test.DBTest"/>
-            <class name="test.GatRequestWithoutParams"/>
-            <class name="test.GetRequestWithParams"/>
-            <class name="test.PostRequestWithJsonBody"/>
-            <class name="test.PutRequestWithPathParamAndJsonBody"/>
+<!--            <class name="test.DBTest"/>-->
+            <class name="test.GatRequestWithoutParams">
+                <methods>
+                    <include name="getTest"/>
+                </methods>
+            </class>
+<!--            <class name="test.GetRequestWithParams"/>-->
+<!--            <class name="test.PostRequestWithJsonBody"/>-->
+<!--            <class name="test.PutRequestWithPathParamAndJsonBody"/>-->
         </classes>
     </test>
 </suite>

@@ -1,0 +1,77 @@
+Suite Level Properties
+1.  Parallel: default none
+- Classes
+- tests
+- instances
+- methods
+- none
+2.  Thread Count : default 5
+3.  Annotations: If "javadoc", TestNG will look for JavaDoc annotations in your sources, otherwise it will use JDK5 annotations.
+4.  allow-return-values: default false, if true run test methods with return values
+5.  configfailure policy: default skip,Whether TestNG should continue to execute the remaining tests in the suite or skip them if an @Before* method fails
+6.  data-provider-thread-count: default 10
+7.  group-by-instances: default false
+8.  guice-stage
+9.  junit: default false
+10. object-factory
+11. parent-module
+12. preserve-order : default true
+13. skipfailedinvocationcount
+14. time-out:The time to wait in milliseconds before aborting the method (if parallel="methods") or the test (parallel="tests")
+
+Inside suite tag
+test
+groups
+listeners
+method-selectors
+packages
+parameter
+suite-files
+
+Test level properties
+1.  junit (true | false) "false"
+2.  verbose
+3.  parallel  (false | true | none | methods | tests | classes | instances)
+4.  thread-count
+5.  annotations
+6.  time-out
+7.  enabled (true | false)
+8.  skipfailedinvocationcounts (true | false)
+9.  preserve-order (true | false)
+10. group-by-instances (true | false)
+11. allow-return-values (true | false)
+
+Inside test tag
+groups
+classes
+method-selectors
+packages
+parameters
+
+group-by-instances:
+attribute is used to group tests by classes. Consider 2 classes with 2 methods in each class and
+each with priority as 1 , 2 respectively.
+
+Groups:
+Multiple groups
+include/exclude groups
+default group
+metagroups
+
+So by default, methods will be executed in below sequence
+class1method1
+class2method1
+class1method2
+class2method2
+
+If you have group-by-instances=”true”, methods will be executed in below sequence.
+Class1 methods will be executed first followed by class2 methods
+class1method1
+class1method2
+class2method1
+class2method2
+
+
+
+
+
