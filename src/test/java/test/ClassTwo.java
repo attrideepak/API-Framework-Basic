@@ -1,13 +1,15 @@
 package test;
 
+import org.testng.Assert;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class ClassTwo {
-    @Test(groups = {"group-1"})
+    @Test(groups = {"group-1"},invocationCount = 10)
     public void test1(){
-        System.out.println("Test1 from Class2,group1");
+        System.out.println("Test1 from Class2,group1,thread id "+ Thread.currentThread().getId());
+        Assert.fail("Failed invocation");
     }
 
     @Test(groups = {"group-2"})

@@ -16,7 +16,7 @@ Suite Level Properties
 10. object-factory
 11. parent-module
 12. preserve-order : default true
-13. skipfailedinvocationcount
+13. skipfailedinvocationcount:default false, to skip failed invocations
 14. time-out:The time to wait in milliseconds before aborting the method (if parallel="methods") or the test (parallel="tests")
 
 Inside suite tag

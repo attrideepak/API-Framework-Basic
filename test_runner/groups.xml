@@ -46,7 +46,7 @@
             <class name="test.ClassOne"></class>
         </classes>
     </test>
-    <test name="default group" enabled="true">
+    <test name="default group" enabled="false">
         <groups>
             <run>
                 <include name="group-1"/>
