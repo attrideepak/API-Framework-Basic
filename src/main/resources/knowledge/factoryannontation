@@ -1,0 +1,13 @@
+1. Difference between @Factory and @DataProvider
+Below are the main differences between @Factory and @DataProvider annotaions in TestNG.
+
+@DataProvider – A test method that uses @DataProvider will be executed multiple number of times based on the configuration provided in it.
+The test method will be executed using the same instance of the test class to which the test method belongs.
+@Factory – A factory will execute all the test methods present inside a test class using separate instances of the class.
+TestNG @Factory is used to create instances of test classes dynamically. This is useful if you want to run the test class any number of times.
+
+For example, if you have a test to login to a site and you want to run this test multiple times, then it is easy to use the TestNG factory where you
+create multiple instances of test class and run the tests (maybe to test any memory leak issues).
+
+Whereas, @DataProvider is used to provide parameters to a test. If you provide the data provider to a test, the test will be run taking a different
+set of values each time. This is useful for a scenario like where you want to login to a site with a different set of username and password each time.
