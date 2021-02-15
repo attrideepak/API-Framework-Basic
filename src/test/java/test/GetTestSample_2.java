@@ -1,6 +1,7 @@
 package test;
 
 import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
@@ -12,7 +13,7 @@ public class GetTestSample_2 {
 
     @Test
     public void getTest() {
-        RequestSpecification specification = RestAssured.expect().then().with();
+        RequestSpecification specification = RestAssured.given();
         HashMap<String, String> queryParamMap = new HashMap<>();
         queryParamMap.put("platform","android");
         queryParamMap.put("device_id","dhsdjds");
@@ -20,7 +21,9 @@ public class GetTestSample_2 {
         specification.params(queryParamMap).log().all();
         Response response = specification.get(" https://api.zoomcar.com/v4/menus");
         response.prettyPrint();
-        Assert.assertEquals(response.getStatusCode(),400,"Status is in correct");
+        Assert.assertEquals(response.getStatusCode(),200,"Status is in correct");
+        JsonPath jsonPath = new JsonPath(response.asString());
+        System.out.println(jsonPath.getBoolean("show_deals"));
     }
 }
 

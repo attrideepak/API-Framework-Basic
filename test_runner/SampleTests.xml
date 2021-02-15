@@ -8,7 +8,6 @@ group-by-instances="true">
 <!--        <listener class-name="reporting.CustomTestNGReporter"/>-->
 <!--    </listeners>-->
     <test name="Sample Test">
-        <
         <classes>
 <!--            <class name="test.DBTest"/>-->
             <class name="test.GatRequestWithoutParams">

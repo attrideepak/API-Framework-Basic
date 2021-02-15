@@ -2,13 +2,18 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="ListenerExecution">
     <listeners>
-        <listener class-name ="listeners.TestListener"/>
-        <listener class-name="listeners.ReportListener"/>
-        <listener class-name="listeners.SuiteListener"/>
+<!--        <listener class-name ="listeners.TestListener"/>-->
+<!--        <listener class-name="listeners.ReportListener"/>-->
+<!--        <listener class-name="listeners.SuiteListener"/>-->
+<!--        <listener class-name="listeners.ExecutionListener"/>-->
+<!--        <listener class-name="listeners.InvokedMethodListener"/>-->
+<!--        <listener class-name="listeners.HookableListener"/>-->
+<!--        <listener class-name="listeners.ConfigurableListener"/>-->
+        <listener class-name="listeners.AnnotationTransformerOne"/>
     </listeners>
     <test name="ExecutingListeners">
         <classes>
-            <class name="test.ListenerClassOne"/>
+            <class name="test.ListenerClassTwo"/>
         </classes>
     </test>
 </suite>
