@@ -1,7 +1,7 @@
 # API-Framework-Basic
 Framework implements Rest Assured for API automation testing
 
-Implements of selecting test env using maven profile.
+Implements selecting test env using maven profile.
 
 Implements log4j
 
