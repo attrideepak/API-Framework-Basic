@@ -1,11 +1,19 @@
 package listeners;
 
+import com.google.common.base.Optional;
+import org.testng.IResultMap;
 import org.testng.IRetryAnalyzer;
+import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.Map;
+
 public class RetryAnalyzer implements IRetryAnalyzer {
-    int counter = 0;
-    int retryLimit = 4;
+    private int count = 0;
+    private static int maxTry = 3;
     /*
      * (non-Javadoc)
      * @see org.testng.IRetryAnalyzer#retry(org.testng.ITestResult)
@@ -19,14 +27,18 @@ public class RetryAnalyzer implements IRetryAnalyzer {
      *
      */
 
-    @Override
-    public boolean retry(ITestResult result) {
 
-        if (counter < retryLimit) {
-            System.out.println("Retry "+counter);
-            counter++;
-            return true;
+    public boolean retry(ITestResult iTestResult) {
+        if (!iTestResult.isSuccess()) {                      //Check if test not succeed
+            if (count < maxTry) {                            //Check if maxtry count is reached
+                count++;                                     //Increase the  count by 1
+                return true;                                 //Tells TestNG to re-run the test
+            }
+
         }
         return false;
     }
+
+
+
 }

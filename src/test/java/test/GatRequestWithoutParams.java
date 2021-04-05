@@ -16,6 +16,8 @@ import org.testng.asserts.SoftAssert;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
+
 
 public class GatRequestWithoutParams extends ConfigInitializer {
     GetRequestWithoutQueryParamActivity getRequestWithoutQueryParamActivity = new GetRequestWithoutQueryParamActivity();
@@ -33,7 +35,7 @@ public class GatRequestWithoutParams extends ConfigInitializer {
 
     @Epic("Get Request")
     @Feature("Get Request without params")
-    @Step("Step 1")
+    @Step()
     @Test()
     public void getTest(){
         Response response = getRequestWithoutQueryParamActivity.getRequestWithoutQueryParam();

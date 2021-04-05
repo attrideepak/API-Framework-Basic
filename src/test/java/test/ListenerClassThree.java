@@ -1,18 +1,33 @@
 package test;
 
-import annotations.RetryCountIfFailed;
+import annotations.Retriable;
 import listeners.RetryAnalyzer;
+import listeners.RetryConfigurationFailure;
 import org.testng.Assert;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-public class ListenerClassThree {
-    int counter = 2;
+public class ListenerClassThree extends RetryConfigurationFailure {
 
-    @Test(retryAnalyzer = RetryAnalyzer.class)
-    public void retryTest(){
-        Assert.assertEquals(true,true);
+    private int counter = 1;
+
+    @BeforeMethod
+    @Retriable(attempts = 4)
+    public void beforeMethod() {
+        if (counter <= 3) {
+            String msg = "Simulating a failure for attempt " + counter++;
+            System.err.println(msg);
+            Assert.fail(msg);
+        }
+        Assert.assertTrue(true,"Finally the configuration passed");
     }
+
+    @Test
+    public void test1() {
+      Assert.assertEquals(2+2,5,"Addition Problem! 2+2 must be 4!\n");
+    }
+
 
     @Test(retryAnalyzer = RetryAnalyzer.class)
     public void retryTestOne(){
@@ -24,7 +39,7 @@ public class ListenerClassThree {
         counter++;
     }
 
-    @RetryCountIfFailed(5)
+    @Retriable(attempts = 4)
     @Test
     public void retryTestTwo(){
         Assert.assertEquals(true,true);
